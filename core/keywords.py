@@ -37,8 +37,10 @@ def trending_kr():
 
 
 def get_keyword():
-    # 트렌드에서 거른 것 → 비면 시드 풀
-    pool = filter_lofi_friendly(trending_kr()) or seed_pool()
+    # 장소·장면 시드 풀을 기본으로 쓴다.
+    # (트렌드 RSS는 정치인·사건·스포츠가 섞여 로파이에 안 맞음. 무료판엔 LLM 필터가 없어
+    #  "윤석열" 같은 고유명사를 못 거른다 → 트렌드 반영은 업그레이드(text: ollama/claude)에서.)
+    pool = seed_pool()
     kw = random.choice(pool)
     genres = json.loads((ASSETS / "word_pools.json").read_text(encoding="utf-8"))["genre"]
     return {"keyword": kw, "mood": "calm", "genre": random.choice(genres)}
