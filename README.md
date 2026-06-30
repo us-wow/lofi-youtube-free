@@ -36,7 +36,8 @@ python run.py          # output/ 폴더에 영상 1개 생성
 
 | 바꾸고 싶은 것 | `config.yaml`에서 | 효과 |
 |---|---|---|
-| 곡 품질 ↑ | `music: musicgen` → `fal` | 더 좋은 곡(유료 키 필요) |
+| 곡 품질 ↑ (무료) | `experience: music_model: medium` → `large` | 더 좋은 곡(더 무거움). `small`=빠름·거침 |
+| 곡 품질 ↑ (유료) | `music: musicgen` → `fal` | 더 좋은 곡(유료 키 필요) |
 | 그림 품질 ↑ | `image: sd_turbo` → `flux` | 더 예쁜 배경(GPU 필요) |
 | 영상에 진짜 움직임 | `video: ken_burns` → `svd` | 정지화면 대신 실제 영상(GPU) |
 | 제목 더 똑똑하게 | `text: rules` → `ollama` | 로컬 AI가 제목 작성(무료) |

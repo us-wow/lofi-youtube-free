@@ -14,6 +14,7 @@ output: local             # local(파일로 저장) | youtube(자동 업로드, 
 experience:               # 체험 모드 분량 (CPU면 작게 둘수록 빠름)
   songs: 2                # 만들 곡 수 (체험은 적게 → 빨리 결과 보기. GPU 켜면 늘려도 OK)
   song_seconds: 30        # 곡 한 개 길이(초)
+  music_model: medium     # 곡 품질: small(빠름·거침) | medium(권장) | large(최고·무거움)
 
 paid_keys:                # 유료 provider 쓸 때만 채움. 비워두면 무료만 동작.
   fal: ""
