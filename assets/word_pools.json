@@ -1,0 +1,8 @@
+{
+  "adj": ["Quiet", "Soft", "Hazy", "Mellow", "Pale", "Dim", "Warm", "Slow",
+          "Faint", "Calm", "Lonely", "Late", "Gentle", "Still", "Amber", "Distant"],
+  "noun": ["Hour", "Drift", "Glow", "Haze", "Echo", "Tide", "Moment", "Breeze",
+           "Light", "Rain", "Street", "Window", "Night", "Walk", "Pulse", "Dawn"],
+  "genre": ["lofi jazz", "lofi hiphop", "ambient", "chillhop", "jazzy lofi",
+            "bossa nova lofi", "piano lofi", "downtempo"]
+}

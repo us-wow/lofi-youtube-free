@@ -1,0 +1,21 @@
+# ===== 무료 오픈소스 로파이 자동화 설정 =====
+# provider 이름만 바꾸면 무료↔유료/고품질이 갈린다. (오른쪽 주석이 선택지)
+
+mode: experience          # experience(가볍게 체험) | full(고품질)
+
+providers:
+  text:  rules            # rules(무료·설치0) | ollama(무료 로컬) | claude(유료)
+  music: musicgen         # musicgen(무료) | fal(유료)
+  image: sd_turbo         # sd_turbo(무료) | flux(GPU) | replicate(유료)
+  video: ken_burns        # ken_burns(무료·모델0) | svd(GPU) | kling(유료)
+
+output: local             # local(파일로 저장) | youtube(자동 업로드, OAuth 필요)
+
+experience:               # 체험 모드 분량 (CPU면 작게 둘수록 빠름)
+  songs: 3                # 만들 곡 수
+  song_seconds: 45        # 곡 한 개 길이(초)
+
+paid_keys:                # 유료 provider 쓸 때만 채움. 비워두면 무료만 동작.
+  fal: ""
+  replicate: ""
+  anthropic: ""

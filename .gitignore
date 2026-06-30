@@ -1,0 +1,15 @@
+# 파이썬 캐시
+__pycache__/
+*.pyc
+
+# 생성 결과물(영상·음악·이미지) — 무거우니 깃에 안 올림
+output/
+*.mp3
+*.mp4
+*.wav
+*.png
+!examples/*
+
+# 가상환경 / 내려받은 AI 모델
+.venv/
+models/
