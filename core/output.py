@@ -7,7 +7,8 @@ def save_local(video_path, timestamps_text, title):
     out_dir = Path("output")
     out_dir.mkdir(exist_ok=True)
     # 파일명에 못 쓰는 글자 제거
-    safe = "".join(c for c in title if c.isalnum() or c in " _-").strip()[:40] or "lofi"
+    safe = "".join(c for c in title if c.isalnum() or c in " _-")
+    safe = " ".join(safe.split())[:40] or "lofi"   # 이중 공백 정리
     final = out_dir / f"{safe}.mp4"
     shutil.move(str(video_path), final)
     (out_dir / f"{safe}_timestamps.txt").write_text(timestamps_text, encoding="utf-8")
