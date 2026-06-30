@@ -1,21 +1,21 @@
 # ===== 무료 기본 동작에 필요한 라이브러리 =====
-# (※ torch·audiocraft·diffusers는 곡/그림 생성용 — 무거움. Colab이나 용량 넉넉한 PC에서만)
+# (torch/transformers/diffusers는 곡·그림 생성용 — 무거움. Colab이나 용량 넉넉한 PC에서)
 
-# --- 곡 생성 (무거움, ~5GB) ---
-audiocraft==1.3.0
-
-# --- 그림 생성 (무거움, ~3GB) ---
-diffusers>=0.27
+# --- 곡 생성: transformers의 MusicGen (audiocraft보다 설치 안정적) ---
 transformers>=4.40
 torch>=2.2
+scipy>=1.10            # 생성된 음악을 wav로 저장
+
+# --- 그림 생성: SD-Turbo ---
+diffusers>=0.27
 accelerate>=0.29
 
 # --- 가벼운 부품 (어디서나 OK) ---
-requests>=2.31        # 트렌드 RSS 받기
-feedparser>=6.0       # RSS 파싱
-PyYAML>=6.0           # config.yaml 읽기
-tqdm>=4.66            # 진행바
-imageio-ffmpeg>=0.4.9 # ffmpeg 바이너리 번들 (영상 합성)
+requests>=2.31         # 트렌드 RSS 받기
+feedparser>=6.0        # RSS 파싱
+PyYAML>=6.0            # config.yaml 읽기
+tqdm>=4.66             # 진행바
+imageio-ffmpeg>=0.4.9  # ffmpeg 바이너리 번들 (영상 합성)
 
 # --- 테스트 ---
 pytest>=8.0
