@@ -26,8 +26,9 @@ def _get_pipe():
 def generate(prompt, out_path):
     """prompt(장면 글)로 배경 이미지 1장을 만들어 out_path에 저장."""
     pipe = _get_pipe()
+    # SD-Turbo는 step이 적어 빠르지만 거칠다. 2~3 step이면 형태가 좀 더 안정적.
     img = pipe(prompt + SUFFIX, negative_prompt=NEG,
-               num_inference_steps=1, guidance_scale=0.0).images[0]
+               num_inference_steps=3, guidance_scale=0.0).images[0]
     out = Path(out_path)
     img.save(out)
     return out

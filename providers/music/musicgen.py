@@ -32,7 +32,9 @@ def generate(prompt, seconds, out_path):
     # MusicGen은 1초에 약 50토큰. 단 musicgen-small은 ~30초(1500토큰)가 한계라,
     # 그 이상 요청하면 'index out of range in self' 에러가 난다 → 안전하게 1500으로 자름.
     tokens = min(int(seconds * 50), 1500)
-    audio = model.generate(**inputs, max_new_tokens=tokens)
+    # do_sample=True + guidance_scale=3 은 MusicGen 공식 권장값.
+    # 이걸 안 주면 greedy 디코딩이라 음악이 단조롭고 왜곡된다('괴생명체' 사운드의 원인).
+    audio = model.generate(**inputs, do_sample=True, guidance_scale=3.0, max_new_tokens=tokens)
 
     sr = model.config.audio_encoder.sampling_rate
     data = audio[0, 0].cpu().numpy()

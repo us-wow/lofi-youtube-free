@@ -40,7 +40,9 @@ def main():
 
     # 3) 배경 이미지 → 움직이는 클립
     print("🖼️  배경 그림 생성 중...")
-    bg = image.generate(f"{kw['keyword']}, lofi background", tmp / "bg.png")
+    # 트렌드 키워드는 그림엔 안 어울릴 때가 많다(예: 국가명·스포츠).
+    # → 그림은 키워드 대신 안전한 '로파이 장면'으로 고정해 기괴해지는 걸 막는다.
+    bg = image.generate(f"cozy lofi illustration, {kw['genre']} mood, calm warm room, night", tmp / "bg.png")
     print("🎞️  배경 움직이는 중(Ken Burns)...")
     clip = video.animate(bg, 5, tmp / "clip.mp4")
 
