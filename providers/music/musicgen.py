@@ -29,8 +29,9 @@ def generate(prompt, seconds, out_path):
     model, processor, device = _load()
 
     inputs = processor(text=[prompt], padding=True, return_tensors="pt").to(device)
-    # MusicGen은 1초에 약 50토큰 → 원하는 길이를 토큰 수로 환산
-    tokens = int(seconds * 50)
+    # MusicGen은 1초에 약 50토큰. 단 musicgen-small은 ~30초(1500토큰)가 한계라,
+    # 그 이상 요청하면 'index out of range in self' 에러가 난다 → 안전하게 1500으로 자름.
+    tokens = min(int(seconds * 50), 1500)
     audio = model.generate(**inputs, max_new_tokens=tokens)
 
     sr = model.config.audio_encoder.sampling_rate
